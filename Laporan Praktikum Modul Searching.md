@@ -323,7 +323,7 @@ melakukan pencarian dengan menggunakan binary search, dan menampilkan hasil penc
  Data ditemukan pada index ke-5
 ```
 Menampilkan judul program searching yang digunakan. 
-lalu menampilkan data sebelum diurutkan, pengguna memasukkan angka yang ingin dicari, menampilkan data setelah diurutkan dengan menggunakan selection sort, dan menampilkan indeks dari data yang dicari.
+lalu menampilkan data sebelum diurutkan, pengguna memasukkan angka yang ingin dicari, menampilkan data setelah diurutkan dengan menggunakan selection sort, dan menampilkan indeks dari angka yang dicari.
 
 #### Full Code Screenshoot
 ![alt text](https://github.com/MikhaelSetiaBudi/Praktikum-Algoritma-Struktur-Data-Modul-4-Searching/blob/master/Modul%204%20Alstrukdat/code%20Guided%202%20Searching.png?raw=true)
@@ -405,65 +405,64 @@ int main()
 
 using namespace std;
 ```
-kode diatas digunakan untuk mendefinisikan header file iostream yang berisi definisi objek input dan output standar seperti cin, dan cout. using namespace std digunakan untuk menggunakan namespace std.
+kode diatas digunakan untuk mendefinisikan header file iostream yang berisi definisi objek input dan output standar seperti cin, dan cout. string digunakan untuk memasukkan library standar untuk manipulasi string. algorithm digunakan untuk memasukkan library standar untuk melakukan transformasi data dan operasi pada range. using namespace std digunakan untuk menggunakan namespace std. 
 
 **Code 2**
 ```C++
-void selectSort(float arr[], int length) 
+int binary_search(const string& kalimat, char huruf) 
 {
-    int pos_max;
-    float temp;
-    for (int i = 0; i < length - 1; i++) 
+    int left = 0;
+    int right = kalimat.length() - 1;
+    while (left <= right) 
     {
-        pos_max = i;
-        for (int j = i + 1; j < length; j++) 
+        int mid = left + (right - left) / 2;
+        if (kalimat[mid] == huruf) 
         {
-            if (arr[j] > arr[pos_max])
-                pos_max = j;
-        }
-        if (pos_max != i) 
+            return mid;
+        } 
+        else if (kalimat[mid] < huruf) 
         {
-            temp = arr[i];
-            arr[i] = arr[pos_max];
-            arr[pos_max] = temp;
+            left = mid + 1;
+        } 
+        else 
+        {
+            right = mid - 1;
         }
     }
+    return -1;
 }
 ```
-fungsi diatan digunakan untuk mengimplementasikan algoritma selection sort untuk mengurutkan array arr[] yang memiliki panjang array lenght. algoritma selection sort bekerja dengan cara mencari nilai minimal atau maksimal pada sekumpulan nilai kemudia meletakannya pada posisi ujung sekumpulan nilai tersebut. variabel pos_max digunakan untuk menyimpan indeks elemen dengan nilai terbesar pada setiap pengulangan. for digunakan untuk mencari elemen dengan nilai terbesar di antara elemen yang belum terurut. if membuat kondisi dengan membandingkan nilai elemen arr[j] dengan nilai terbesar yang terlah ditemukan arr[pos_max]. if (pos_max != i) digunakan untuk mengecek apakah elemen terbesar tersebut berada pada posisi yang benar atau tidak. proses ini terus berulang hingga semua elemen telah terurut, if (arr[j] > arr[pos_max]).
+binary_search merupakan fungsi binary search yang melakukan pencarian biner dalam string kalimat unruk karakter huruf. masukan parameter masukan berupa string pada variabel kalimat. huruf merupakan variabel untuk parameter masukan berupa karakter yang ingin dicari dalam string. left dan right merupakan variabel untuk menyimpan indeks kiri dan kanan dari rentang pencarian. pencarian akan dilakukan dengan membagi rentang pencarian menjadi dua bagian dan memeriksa apakah karakter yang dicari berada di tengah. fungsi mengembalikan indeks karakter ketika ditemukan, -1 jika karakter tidak ditemukan.
 
 **Code 3**
 ```C++
-void print_array(float array[], int length)
+int main() 
 {
-    for (int i = 0; i < length; i++) 
-    {
-        cout << array[i] << "\t";
-    }
-    cout << endl;
-}
-```
-mendeklarasikan fungsi print_array yang menerima dua parameter yaitu array[] dan lenght. for (int i = 0; i < length; i++) adalah sebuah perulangan for yang akan melakukan perulangan melalui setiap elemen dalam array[]. cout digunakan untuk mencetak setiap elemen array, dengan dipisahkan oleh tanda tab.
+    string kalimat;
+    char huruf;
 
-**Code 4**
-```C++
-int main()
-{
-    int length = 5;
-    float array[] = {3.8, 2.9, 3.3, 4.0, 2.4};
+    cout << "\t Binary Search\n" << endl;
 
-    cout << "Urutan IPS Mahasiswa sebelum diurutkan : " << endl;
-    print_array(array, length);
+    cout << "Masukkan kalimat anda : ";
+    getline(cin, kalimat);
 
-    selectSort(array, length);
+    cout << "Masukkan huruf yang ingin dicari : ";
+    cin >> huruf;
 
-    cout << "\nUrutan IPS Mahasiswa setelah diurutkan dari yang terbesar hingga terkecil : " << endl;
-    print_array(array, length);
+    // Ubah kalimat dan huruf menjadi huruf kecil
+    transform(kalimat.begin(), kalimat.end(), kalimat.begin(), ::tolower);
+    huruf = tolower(huruf);
+
+    int result_index = binary_search(kalimat, huruf);
+    if (result_index != -1)
+        cout << "Huruf '" << huruf << "' berada pada indeks ke-" << result_index << "." << endl;
+    else
+        cout << "Huruf '" << huruf << "' tidak terdapat dalam kalimat." << endl;
 
     return 0;
 }
 ```
-fungsi main adalah tempat dimulai eksekusi program. variabel lenght menunjukan panjang array dengan tipe data integer. float array[] diisi dengan nilai awal yang belum diurutkan. pesan "Urutan IPS mahasiswa sebelum diurutkan: " dicetak dengan menggunakan cout dan endl adalah untuk newline outputnya. memanggil fungsi selectSort untuk mengurutkan array dengan pengurutan selection sort. lalu mencetak pesan "Urutan IPS mahasiswa sesudah diurutkan: " dengan menggunakan cout dan endl digunakan untuk newline.
+fungsi main digunakan sebagai entry point dari program. pengguna akan diminta untuk memasukkan sebuah kalimat dan sebuah huruf yang ingin dicari. kalimat dan huruf tersebut akan diubah menjadi huruf kecil menggunakan fungsi 'tolower'. menggunakan fungsi binary_search untuk mencari posisi huruf falam kalimat. hasil pencarian ditampilkan ke layar.
 
 #### Output:
 ```C++
@@ -473,7 +472,7 @@ Masukkan kalimat anda : Mikhael
 Masukkan huruf yang ingin dicari : h
 Huruf 'h' berada pada indeks ke-3.
 ```
-menapilkan pesan "Urutan IPS Mahasiswa sebelum diurutkan: " dengan output array yang masih belum diurutkan. setelah memanggil fungsi selection sort lalu menampilkan Urutan IPS Mahasiswa setelah diurutkan dari yang terbesar hingga terkecil.
+menampilkan judul pencarian lalu meminta pengguna untuk memasukkan kalimat. pengguna memasukkan angka yang ingin dicari dalam kalimat yang sudah diinputkan. lalu akan menampilkan huruf berserta lokasi indkesnya.
 
 #### Full code Screenshot:
 ![alt text](https://github.com/MikhaelSetiaBudi/Praktikum-Algoritma-Struktur-Data-Modul-4-Searching/blob/master/Modul%204%20Alstrukdat/code%20Unguided%201%20Searching.png?raw=true)
@@ -533,72 +532,63 @@ int main()
 ```C++
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 ```
-kode diatas digunakan untuk mendefinisikan header file iostream yang berisi definisi objek input dan output standar seperti cin, dan cout. using namespace std digunakan untuk menggunakan namespace std. mengimpor pustaka string untuk dapat menggunakan fungsi string.
+kode diatas digunakan untuk mendefinisikan header file iostream yang berisi definisi objek input dan output standar seperti cin, dan cout. string digunakan untuk memasukkan library standar untuk manipulasi string. algorithm digunakan untuk memasukkan library standar untuk melakukan transformasi data dan operasi pada range. using namespace std digunakan untuk menggunakan namespace std. 
 
 **Code 2**
 ```C++
-void swap(string &a, string &b) 
+bool isVowel(char huruf) 
 {
-    string temp = a;
-    a = b;
-    b = temp;
+    huruf = tolower(huruf); 
+    return (huruf == 'a' || huruf == 'i' || huruf == 'u' || huruf == 'e' || huruf == 'o');
 }
 ```
-fungsi swap digunakan untuk menukar nilai 2 string. didefinisikan dengan menggunakan referensi '&' sebagai parameter. ketika fungsi dipanggil, nilai variabel a akan disimpan dalam variabel temp, kemudian nilai b disalin ke a, dan nilai temp (nilai asli dari a) disalin ke b. maka nilai a dan b akan ditukar.
+isVowel merupakan fungi yang menerima sebuah karakter dan memeriksa apakah karakter tersebut adalah huruf vokal. tolower digunakan unruk mengubah huruf menjadi huruf kecil. fungsi akan mengembalikan true jika huruf adalah huruf vokal, dan false jika bukan huruf vokal.
 
 **Code 3**
 ```C++
-void bubbleSort(string array[], int n) 
+int countVowels(const string& kalimat) 
 {
-    for (int i = 0; i < n-1; i++) 
+    int count = 0;
+    for (char huruf : kalimat) 
     {
-        for (int j = 0; j < n-i-1; j++) 
+        if (isVowel(huruf)) 
         {
-            if (array[j] > array[j+1]) 
-            {
-                swap(array[j], array[j+1]);
-            }
+            count++;
         }
     }
+    return count;
 }
 ```
-fungsi bubbleSort yang digunakan untuk algoritma bubble sorting untuk mengurutkan array string. terdapat dua pengulangan, pengulangan pertama digunakan untuk mengontrol jumlah perulangan keseluruhan, sementara perulangan kedua digunakan untuk melakukan perbandingan dan pertukaran elemen. setiap perulangan jika nilai string pada indeks j lebih besar dari nilai indeks j+1 maka dilakukan pertukaran dengan menggunakan swap.
+coutVowels merupakan fungsi yang digunakan untuk menghitung jumlah huruf vokal dalam string kalimat. perulangan for setiap karakter dari kalimat diambil satu per satu. setiap karakter akan diperiksa apakah merupakan huruf vokal menggunakan fungsi isvowel. jika karakter tersebut huruf vokal maka count jumlah vokal akan ditambah 1.
 
 **Code 4**
 ```C++
 int main() 
 {
-    string nama[] = {"siti", "situ", "sana", "ana", "ani", "caca", "cici", "dida", "dodo", "dadi"};
-    int n = sizeof(nama)/sizeof(nama[0]);
+    string kalimat;
 
-    cout << "Nama 10 warga sebelum diurutkan: " << endl;
-    for (int i = 0; i < n; i++) 
-    {
-        cout << nama[i] << endl;
-    }
+    cout << "Masukkan kalimat anda : ";
+    getline(cin, kalimat);
 
-    bubbleSort(nama, n);
+    int banyakvokal = countVowels(kalimat);
 
-    cout << "Nama 10 warga setelah diurutkan:" << endl;
-    for (int i = 0; i < n; i++) 
-    {
-        cout << nama[i] << endl;
-    }
+    cout << "Banyak huruf vokal dalam kalimat : " << banyakvokal << endl;
 
     return 0;
 }
 ```
-fungsi main adalah tempat dimulai eksekusi program. array nama[] diisi dengan nama warga yang belum diurutkan. panjang array dihitung dengan menggunakan sizeof(nama)/sizeof(nama[0]), sehingga program dapat berjalan dengan baik walapun ukuran array diubah. pesan "Nama 10 warga sebelum diurutkan: " dicetak dengan menggunakan cout dan endl adalah untuk newline outputnya. memanggil fungsi bubbleSort untuk mengurutkan array dengan pengurutan bubble sorting. lalu mencetak pesan "Nama 10 warga setelah diurutkan: " dengan menggunakan cout dan endl digunakan untuk newline.
+main digunakan sebagai program utama yang akan dijalankanl. pengguna akan diminta untuk memasukkan sebuah kalimat. fungsi coutVowels dipanggil untuk menghitung jumlah huruf vokal dalam kalimat. hasil perhiungan ditampilkan pada layar.
 
 #### Output:
 ```C++
 Masukkan kalimat anda : Institut Teknologi Telkom Purwokerto
 Banyak huruf vokal dalam kalimat : 13
 ```
-
+pengguna memasukkan kalimat. lalu akan muncul banyaknya huruf vokal dalam kalimat yang diinputkan.
 
 #### Full code Screenshot:
 ![alt text](https://github.com/MikhaelSetiaBudi/Praktikum-Algoritma-Struktur-Data-Modul-4-Searching/blob/master/Modul%204%20Alstrukdat/code%20Unguided%202%20Searching.png?raw=true)
