@@ -641,7 +641,6 @@ int main()
 **Code 1**
 ```C++
 #include <iostream>
-#include <algorithm>
 #include <vector>
 
 using namespace std;
@@ -650,86 +649,45 @@ kode diatas digunakan untuk mendefinisikan header file iostream yang berisi defi
 
 **Code 2**
 ```C++
-int main() 
+int sequentialSearch(const vector<int>& data, int angka) 
 {
-    int n;
-    cout << "Masukkan banyaknya karakter: ";
-    cin >> n;
-
-    vector<char> characters(n);
-
-    cout << "Masukkan karakter:" << endl;
-    for (int i = 0; i < n; ++i) 
+    int count = 0;
+    for (int num : data) 
     {
-        cout << "Karakter ke-" << i + 1 << ": ";
-        cin >> characters[i];
+        if (num == angka) 
+        {
+            count++;
+        }
     }
+    return count;
+}
 ```
 fungsi main merupakan fungsi utama yang akan dieksekusi saat program dijalankan. lalu mendeklarasikan variabel n yang digunakan untuk menyimpan jumlah karakter yang akan dimasukkan pengguna dengan tipe data integer. membuat vektor bernama characters dengan panjang n dibuat untuk menyimpan karakter yang akan dimasukkan oleh pengguna. program akan diminta untuk memasukkan karakter sejumlah n dan disimpan dalam vektor characters.
 
 **Code 3**
 ```C++
- cout << "Urutan karakter sebelum sorting: " << endl;
-     for (char character : characters) 
-    {
-        cout << character << " ";
-    }
-    cout << endl;
-```
-Program akan mencetak pesan Urutan karakter sebelum sorting dengan menggunakan cout dan endl untuk newline sehingga karakter yang belum diurutkan akan muncul dibawahnya. lalu program akan mencetak karakter yang belum diurutkan.
+int main() 
+{
+    vector<int> data = {9, 4, 1, 4, 7, 10, 5, 4, 12, 4};
 
-**Code 4**
-```C++
-sort(characters.begin(), characters.end());
-```
-fungsi sort digunakan untuk mengurutkan karakter dalam vektor characters secara ascending (menaik)
+    cout << "\t Sequential Search\n" << endl;
 
-**Code 5**
-```C++
-cout << "Urutan karakter setelah ascending sort: " << endl;
-    for (char character : characters) 
-    {
-        cout << character << " ";
-    }
-    cout << endl;
-```
-program akan mencetak urutan karakter yang sudah diurutkan secara ascending atau menaik dan mencetak pesan Urutan karakter setelah ascending sort dengan menggunakan cout, endl untuk newline sehingga karakter yang sudah diurutkan akan muncul dibawahnya.
+    int angka = 4;
 
-**Code 6**
-```C++
-sort(characters.rbegin(), characters.rend());
-```
-fungsi sort digunakan kembali untuk mengurutkan karakter dalam vektor characters secara descending atau menurun.
+    int count = sequentialSearch(data, angka);
 
-**Code 7**
-```C++
- cout << "Urutan karakter setelah descending sort: " << endl;
-    for (char character : characters) 
-    {
-        cout << character << " ";
-    }
-    cout << endl;
+    cout << "Angka 4 dalam data sebanyak " << count << " buah" << endl;
 
     return 0;
 }
 ```
-setelah diurutkan secara descending, program mencetak karakter yang telah diurutkan dan mencetak pesan Urutan karakter setelah descending sort dengan menggunakan cout. endl untuk newline sehingga karakter yang sudah diurutkan akan muncul dibawahnya. return 0 untuk menandakan bahwa program telah berakhir. 
+Program akan mencetak pesan Urutan karakter sebelum sorting dengan menggunakan cout dan endl untuk newline sehingga karakter yang belum diurutkan akan muncul dibawahnya. lalu program akan mencetak karakter yang belum diurutkan.
 
 #### Output:
 ```C++
-Masukkan banyaknya karakter: 5
-Masukkan karakter:
-Karakter ke-1: a
-Karakter ke-2: c
-Karakter ke-3: e
-Karakter ke-4: d
-Karakter ke-5: b
-Urutan karakter sebelum sorting:
-a c e d b
-Urutan karakter setelah ascending sort:
-a b c d e
-Urutan karakter setelah descending sort:
-e d c b a
+ Sequential Search
+
+Angka 4 dalam data sebanyak 4 buah
 ```
 menampilkan pesan dimana pengguna dapat memasukkan panjang array, setelah itu masukkan karakter secara acak. lalu akan muncul pesan Urutan karakter sebelum sorting dan karakter yang belum diurutkan. setelah diurutkan secara ascending maka akan muncul pesan Urutan karakter setelah ascending sort dan karakter yang telah diurutkan secara ascending (menaik). diurutkan secara descending lalu akan memunculkan pesan Urutan karakter setelah descending sort dan karakter yang telah diurutkan secara descending (menurun)
 
