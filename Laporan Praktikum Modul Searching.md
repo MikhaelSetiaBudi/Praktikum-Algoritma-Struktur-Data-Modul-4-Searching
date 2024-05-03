@@ -645,7 +645,7 @@ int main()
 
 using namespace std;
 ```
-kode diatas digunakan untuk mendefinisikan header file iostream yang berisi definisi objek input dan output standar seperti cin, dan cout. algoritma untuk fungsi pengurutan, dan vector untuk menggunakan struktur data vektor. using namespace std digunakan untuk menggunakan namespace std.
+kode diatas digunakan untuk mendefinisikan header file iostream yang berisi definisi objek input dan output standar seperti cin, dan cout. vector untuk menggunakan struktur data vektor. using namespace std digunakan untuk menggunakan namespace std.
 
 **Code 2**
 ```C++
@@ -662,7 +662,7 @@ int sequentialSearch(const vector<int>& data, int angka)
     return count;
 }
 ```
-fungsi main merupakan fungsi utama yang akan dieksekusi saat program dijalankan. lalu mendeklarasikan variabel n yang digunakan untuk menyimpan jumlah karakter yang akan dimasukkan pengguna dengan tipe data integer. membuat vektor bernama characters dengan panjang n dibuat untuk menyimpan karakter yang akan dimasukkan oleh pengguna. program akan diminta untuk memasukkan karakter sejumlah n dan disimpan dalam vektor characters.
+sequentialSearch merupakan fungsi yang menerima vektor data dan integer angka yang ingin dicari. setiap elemen dari vektor data diambil satu persatu dengan perulangan for. ketika elemen tersebut dama dengan angka, count akan bertambah satu. fungsi mengembalikan jumlah kemunculan angka dalam vektor data.
 
 **Code 3**
 ```C++
@@ -681,7 +681,7 @@ int main()
     return 0;
 }
 ```
-Program akan mencetak pesan Urutan karakter sebelum sorting dengan menggunakan cout dan endl untuk newline sehingga karakter yang belum diurutkan akan muncul dibawahnya. lalu program akan mencetak karakter yang belum diurutkan.
+fungsi main merupakan program utama yang akan dijalankan. vektor data yang berisi bilangan bulat dideklarasikan dan diinisialisasi. angka yang ingin dicari dalam vektor data didefinisikan. fungsi sequential Search dipanggil untuk mencari jumlah kemunculan angka dalam vektor data. hasil pencarian akan ditampilkan ke layar
 
 #### Output:
 ```C++
@@ -689,7 +689,7 @@ Program akan mencetak pesan Urutan karakter sebelum sorting dengan menggunakan c
 
 Angka 4 dalam data sebanyak 4 buah
 ```
-menampilkan pesan dimana pengguna dapat memasukkan panjang array, setelah itu masukkan karakter secara acak. lalu akan muncul pesan Urutan karakter sebelum sorting dan karakter yang belum diurutkan. setelah diurutkan secara ascending maka akan muncul pesan Urutan karakter setelah ascending sort dan karakter yang telah diurutkan secara ascending (menaik). diurutkan secara descending lalu akan memunculkan pesan Urutan karakter setelah descending sort dan karakter yang telah diurutkan secara descending (menurun)
+memunculkan judul search yang digunakan sebagai judul. lalu muncul output banyaknya angka 4 dalam data.
 
 #### Full code Screenshot:
 ![alt text](https://github.com/MikhaelSetiaBudi/Praktikum-Algoritma-Struktur-Data-Modul-4-Searching/blob/master/Modul%204%20Alstrukdat/code%20Unguided%203%20Searching.png?raw=true)
@@ -698,7 +698,7 @@ menampilkan pesan dimana pengguna dapat memasukkan panjang array, setelah itu ma
 ![alt text](https://github.com/MikhaelSetiaBudi/Praktikum-Algoritma-Struktur-Data-Modul-4-Searching/blob/master/Output%20Modul%204%20Alstrukdat/Output%20Unguided%203%20Searching.png?raw=true)
 
 ## Kesimpulan
-dalam sorting terdapat 3 cara pengurutan yaitu insertion sort, bubble sort, dan selection sort dimana masing masing memiliki kelebihan dan kekurangan. dengan sorting ini ketika memasukkan elemen atau karakter yang tidak urut menjadi menjadi mudah diurutkan. tentu ini sangat penting dalam menganalisis data karena tidak perlu mengurutkannya dalam coding karena bisa menggunakan fungsi sorting.
+searching merupakan sebuah proses pencarian suatu data di dalam sebuah array dengan cara mengecek satu persatu pada setiap index baris atau setiap index kolom dengan menggunakan teknik perulangan untuk melakukan pencarian data. searching memiliki 2 metode yaitu sequential search yang membaca data dalam array satu demi satu, dan binary search dimana data harus diurutkan terlebih dahulu dengan cara data dibagi menjadi dua.
 
 ## Referensi
 [1]	Y. A. Sandria, M. R. A. Nurhayoto, L. Ramadhani, and R. S. Harefa, “Penerapan Algoritma Selection Sort untuk Melakukan Pengurutan Data dalam Bahasa Pemrograman PHP,” 2022.
