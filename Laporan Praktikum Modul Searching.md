@@ -10,7 +10,8 @@ terdapat 2 metode pada algoritma swarching, yaitu:
 
 Sequential Search merupakan salah satu algoritma pencarian data yang biasa digunakan untuk data yang berpola acak atau belum terurut.
 Sequential search juga merupakan teknik pencarian data dari array yang paling mudah, dimana data dalam array dibaca satu demi satu dan 
-diurutkan dari index terkecil ke index terbesar, maupun sebaliknya. Konsep Sequential Search yaitu:
+diurutkan dari index terkecil ke index terbesar, maupun sebaliknya. Sequential search disebut juga pencarian lurus (linear search). Pencarian linier adalah nama lain dari algoritma pencarian berkelanjutan. Setiap elemen dalam array dibandingkan secara berurutan, dimulai dengan elemen pertama, sampai elemen yang diinginkan ditemukan atau semua elemen telah dibandingkan[1].
+Konsep Sequential Search yaitu:
 
 1. Membandingkan elemen array satu demi satu secara berurut
 2. Pencarian dimulai dari indeks pertama hingga terakhir
@@ -701,9 +702,4 @@ memunculkan judul search yang digunakan sebagai judul. lalu muncul output banyak
 searching merupakan sebuah proses pencarian suatu data di dalam sebuah array dengan cara mengecek satu persatu pada setiap index baris atau setiap index kolom dengan menggunakan teknik perulangan untuk melakukan pencarian data. searching memiliki 2 metode yaitu sequential search yang membaca data dalam array satu demi satu, dan binary search dimana data harus diurutkan terlebih dahulu dengan cara data dibagi menjadi dua.
 
 ## Referensi
-[1]	Y. A. Sandria, M. R. A. Nurhayoto, L. Ramadhani, and R. S. Harefa, “Penerapan Algoritma Selection Sort untuk Melakukan Pengurutan Data dalam Bahasa Pemrograman PHP,” 2022.
-
-[2]	* Saputri, D. Pemograman, B. Seleksi, and P. Saputri, “Analisis Study Komperatif Bubble Sort Dan Selection Sort Pada Algoritma,” Bhs. dan Mat., vol. 1, no. 6, pp. 151–161, 2023, [Online]. Available: https://doi.org/10.61132/arjuna.v1i6.305
-
-[3]	L. Lasriana and A. Gunaryati, “Sistem Informasi Apotek Berbasis Web Menggunakan Algoritma Sequential Search Dan Selection Sort,” JIPI (Jurnal Ilm. Penelit. dan Pembelajaran Inform., vol. 7, no. 2, pp. 392–401, 2022, doi: 10.29100/jipi.v7i2.2709.
-
+[1]	W. S. Wahyuni, S. Andryana, and B. Rahman, “Penggunaan Algoritma Sequential Searching Pada Aplikasi Perpustakaan Berbasis Web,” JIPI (Jurnal Ilm. Penelit. dan Pembelajaran Inform., vol. 7, no. 2, pp. 294–302, 2022, doi: 10.29100/jipi.v7i2.2646.
